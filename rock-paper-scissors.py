@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This Module Plays a simple game of Random Choices
+"""
 import random
 
 rock = '''
@@ -28,41 +30,32 @@ scissors = '''
 ---.__(___)
 '''
 # Write your code below this line 👇
-feedback = input("Enter 1 for Rock, 2 for Paper, or 3 for Scissors:")
-comppick = random.randint(1, 3)
-
-if feedback == '1':
-    print("You chose: {}".format(rock))
-    if comppick == 2:
-        print("Computer Chose:{}".format(paper))
-        print('You Lose')
-    elif comppick == 3:
-        print("Computer Chose:{}".format(scissors))
-        print('You Win')
-    else:
-        print("Computer Chose:{}".format(rock))
-        print("Repeat")
-elif feedback == '2':
-    print("You chose: {}".format(paper))
-    if comppick == 1:
-        print("Computer Chose:{}".format(rock))
-        print('You Win')
-    elif comppick == 3:
-        print("Computer Chose:{}".format(scissors))
-        print('You Lose')
-    else:
-        print("Computer Chose:{}".format(paper))
-        print("Repeat")
-elif feedback == '3':
-    print("You chose: {}".format(scissors))
-    if comppick == 1:
-        print("Computer Chose:{}".format(rock))
-        print('You Lose')
-    elif comppick == 2:
-        print("Computer Chose:{}".format(paper))
-        print('You Win')
-    else:
-        print("Computer Chose:{}".format(scissors))
-        print("Repeat")
+game_choice = [rock, paper, scissors]
+feedback = int(input("Enter 0 for Rock, 1 for Paper, or 2 for Scissors:\n"))
+if feedback >= 3 or feedback < 0:
+    print("You have entered an Invalid Number")
 else:
-    print("Sorry, Enter A Valid Option")
+    print("You chose {}".format(game_choice[feedback]))
+    comppick = random.randint(0, 2)
+    print("Computer chose {}".format(game_choice[comppick]))
+    if feedback == 0:
+        if comppick == 1:
+            print('You Lose')
+        elif comppick == 2:
+            print('You Win')
+        else:
+            print("Repeat")
+    elif feedback == 1:
+        if comppick == 0:
+            print('You Win')
+        elif comppick == 2:
+            print('You Lose')
+        else:
+            print("Repeat")
+    else:
+        if comppick == 0:
+            print('You Lose')
+        elif comppick == 1:
+            print('You Win')
+        else:
+            print("You Draw")
