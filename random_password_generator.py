@@ -17,13 +17,16 @@ formed_letter = ""
 for letter in range(0, (nr_letters)):
     random_letter = random.randint(0, len(letters)-1)
     formed_letter += letters[random_letter]
-formed_symbol = ""
-for symbol in range(0, (nr_symbols)):
-    random_symbol = random.randint(0, len(symbols)-1)
-    formed_symbol += symbols[random_symbol]
-formed_number = ""
-for number in range(0, (nr_numbers)):
-    random_number = random.randint(0, len(numbers)-1)
-    formed_number += numbers[random_number]
-print("Your Password is:\n{}{}{}".format(
-    formed_letter, formed_symbol, formed_number))
+    formed_symbol = ""
+    for symbol in range(0, (nr_symbols)):
+        random_symbol = random.randint(0, len(symbols)-1)
+        formed_symbol += symbols[random_symbol]
+    formed_number = ""
+    for number in range(0, (nr_numbers)):
+        random_number = random.randint(0, len(numbers)-1)
+        formed_number += numbers[random_number]
+password = formed_letter + formed_symbol + formed_number
+shuffled_pass = list(password)
+random.shuffle(shuffled_pass)
+result = ''.join(shuffled_pass)
+print("Your Password is:\n{}".format(result))
