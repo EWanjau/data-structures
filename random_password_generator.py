@@ -13,18 +13,17 @@ print("Welcome to my Py Password Generator!")
 nr_letters = int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input("How many symbols would you like in your password?\n"))
 nr_numbers = int(input("How many numbers would you like in your password?\n"))
+
 formed_letter = ""
 for letter in range(0, (nr_letters)):
-    random_letter = random.randint(0, len(letters)-1)
-    formed_letter += letters[random_letter]
+    formed_letter += random.choice(letters)
     formed_symbol = ""
     for symbol in range(0, (nr_symbols)):
-        random_symbol = random.randint(0, len(symbols)-1)
-        formed_symbol += symbols[random_symbol]
+        formed_symbol += random.choice(symbols)
     formed_number = ""
     for number in range(0, (nr_numbers)):
-        random_number = random.randint(0, len(numbers)-1)
-        formed_number += numbers[random_number]
+        formed_number += random.choice(numbers)
+
 password = formed_letter + formed_symbol + formed_number
 shuffled_pass = list(password)
 random.shuffle(shuffled_pass)
