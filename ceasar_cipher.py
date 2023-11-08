@@ -2,7 +2,9 @@
 """This Module has an encrypting function for messages
 """
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+            'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
@@ -11,12 +13,17 @@ shift = int(input("Type the shift number:\n"))
 # TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
 
-def encrypt(words_to_encrypt=text, no_of_shifts=shift):
-    for i in words_to_encrypt:
-        pos_in_alphabet = alphabet.index(words_to_encrypt[i])
-        new_position = pos_in_alphabet + no_of_shifts
-        words_to_encrypt[i] = alphabet[new_position]
-    print("The Encoded Text is: ".format(words_to_encrypt))
+def encrypt(word, amount):
+    new_cipher = ""
+    for letter in word:
+        pos_in_alphabet = alphabet.index(letter)
+        new_position = pos_in_alphabet + amount
+        new_letter = alphabet[new_position]
+        new_cipher += new_letter
+    print("The Encoded Text is: {}".format(new_cipher))
+
+
+encrypt(word=text, amount=shift)
 
 # TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.
 # e.g.
