@@ -50,3 +50,21 @@ def prime_checker(number):
 n = int(input("Enter a Number:"))
 
 prime_checker(number=n)
+"""
+Alternative prime number checker function:
+"""
+
+
+def prime_me(number):
+    is_prime = True
+    for i in range(2, n):
+        if number % i == 0:
+            is_prime = False
+    if is_prime:
+        print("{} is a prime number".format(number))
+    else:
+        print("{} is a NOT a prime number".format(number))
+
+
+n = int(input("enter a value: "))
+prime_me(number=n)
