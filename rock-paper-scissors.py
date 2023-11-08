@@ -38,6 +38,7 @@ else:
     print("You chose {}".format(game_choice[feedback]))
     comppick = random.randint(0, 2)
     print("Computer chose {}".format(game_choice[comppick]))
+
     if feedback == 0:
         if comppick == 1:
             print('You Lose')
