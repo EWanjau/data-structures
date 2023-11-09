@@ -18,12 +18,23 @@ def encrypt(word, amount):
     for letter in word:
         pos_in_alphabet = alphabet.index(letter)
         new_position = pos_in_alphabet + amount
-        new_letter = alphabet[new_position]
-        new_cipher += new_letter
+        new_cipher += alphabet[new_position]
     print("The Encoded Text is: {}".format(new_cipher))
 
 
-encrypt(word=text, amount=shift)
+def decrypt(word, amount):
+    new_cipher = ''
+    for letter in word:
+        pos_in_alphabet = alphabet.index(letter)
+        new_position = pos_in_alphabet - amount
+        new_cipher += alphabet[new_position]
+    print("The Encoded Text is: {}".format(new_cipher))
+
+
+if direction == "encode":
+    encrypt(word=text, amount=shift)
+else:
+    decrypt(word=text, amount=shift)
 
 # TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.
 # e.g.
@@ -31,11 +42,8 @@ encrypt(word=text, amount=shift)
 # shift = 5
 # cipher_text = "mjqqt"
 # print output: "The encoded text is mjqqt"
-
 # HINT: How do you get the index of an item in a list:
 # https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
-
 # 🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
-
 
 # TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message.
