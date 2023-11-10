@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """This Module has an encrypting function for messages
 """
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -13,28 +13,27 @@ shift = int(input("Type the shift number:\n"))
 # TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
 
-def encrypt(word, amount):
+def cipher(word, amount, command):
     new_cipher = ""
-    for letter in word:
-        pos_in_alphabet = alphabet.index(letter)
-        new_position = pos_in_alphabet + amount
-        new_cipher += alphabet[new_position]
-    print("The Encoded Text is: {}".format(new_cipher))
+    if command == "encode":
+        new_cipher = ''
+        for letter in word:
+            pos_in_alphabet = alphabet.index(letter)
+            new_position = pos_in_alphabet + amount
+            new_cipher += alphabet[new_position]
+        print("The Encoded Text is: {}".format(new_cipher))
+    elif command == 'decode':
+        new_cipher = ''
+        for letter in word:
+            pos_in_alphabet = alphabet.index(letter)
+            new_position = pos_in_alphabet - amount
+            new_cipher += alphabet[new_position]
+        print("The Encoded Text is: {}".format(new_cipher))
+    else:
+        print("Invalid Input: 'encode' or 'decode' expected")
 
 
-def decrypt(word, amount):
-    new_cipher = ''
-    for letter in word:
-        pos_in_alphabet = alphabet.index(letter)
-        new_position = pos_in_alphabet - amount
-        new_cipher += alphabet[new_position]
-    print("The Encoded Text is: {}".format(new_cipher))
-
-
-if direction == "encode":
-    encrypt(word=text, amount=shift)
-else:
-    decrypt(word=text, amount=shift)
+cipher(word=text, amount=shift, command=direction)
 
 # TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.
 # e.g.
@@ -47,3 +46,4 @@ else:
 # 🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
 
 # TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message.
+# 1. Talk to John for photography_quotes for The County Initiatives for the
